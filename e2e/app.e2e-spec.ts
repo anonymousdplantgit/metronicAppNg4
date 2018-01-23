@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('metronic-app-ng4 App', () => {
+describe('user-app App', () => {
   let page: AppPage;
 
   beforeEach(() => {
