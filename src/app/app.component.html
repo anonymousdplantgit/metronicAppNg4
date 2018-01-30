@@ -1,4 +1,27 @@
 <app-header> </app-header>
-<app-sidebar> </app-sidebar>
-<app-footer> </app-footer>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+   <app-sidebar> </app-sidebar>
+     <!-- BEGIN CONTENT -->
+ <div class="page-content-wrapper">
+     <!-- BEGIN CONTENT BODY -->
+     <div class="page-content">
+         <!-- BEGIN PAGE HEADER-->
+         <app-theme-panel>
 
+         </app-theme-panel>  
+         <!-- BEGIN PAGE BAR -->
+          <!-- BEGIN PAGE BAR -->
+          <router-outlet></router-outlet>
+
+    </div>
+<!-- END CONTENT BODY -->
+</div>
+</div>
+<!-- END CONTAINER -->
+<app-footer> </app-footer>
+<ng4-loading-spinner translate [threshold]="0" [template]="template" [loadingText]="'Please wait...'" [zIndex]="9999"></ng4-loading-spinner>
+       
+
+      
+      

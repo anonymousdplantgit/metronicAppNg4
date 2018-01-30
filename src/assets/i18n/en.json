@@ -1,3 +1,12 @@
 {
-    "fournisseur": "Provider"
+    "fournisseur": "Provider",
+    "acceuil": "Home",
+    "dashboard": "Dashboard",
+    "gestion.tableaudebord": "Dashboard administration",
+    "gestion.fournisseur": "Providers Management",
+    "edit": "Edit",
+    "delete": "Delete",
+    "loading": "Loading",
+    "wait": "Please Wait ...",
+    "config":"Settings"
 }

@@ -1,3 +1,12 @@
 {
-    "fournisseur": "Fournisseur"
+    "fournisseur": "Fournisseur",
+    "acceuil": "Acceuil",
+    "dashboard": "Tableau de bord",
+    "gestion.tableaudebord": "Admin Tableau de bord",
+    "gestion.fournisseur": "Gestion des founisseurs",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "loading": "Chargement",
+    "wait": "Attendez quelques instants ...",
+    "config":"Configuration"
 }
