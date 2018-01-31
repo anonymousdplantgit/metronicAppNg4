@@ -1,12 +1,26 @@
 {
-    "fournisseur": "Fournisseur",
     "acceuil": "Acceuil",
-    "dashboard": "Tableau de bord",
-    "gestion.tableaudebord": "Admin Tableau de bord",
-    "gestion.fournisseur": "Gestion des founisseurs",
-    "edit": "Modifier",
-    "delete": "Supprimer",
-    "loading": "Chargement",
-    "wait": "Attendez quelques instants ...",
-    "config":"Configuration"
+    "dashboard": {
+        "dashboard":"Tableau de bord",
+        "admin":"Admin Tableau de bord"
+    },
+    "fournisseur":{
+        "gestion":"Gestion des founisseurs",
+        "fournisseur": "Fournisseur",
+        "ajouter": "Ajouter un fornisseur",
+        "liste": "Liste des fournisseurs",
+        "nom":"Nom Fournisseur",
+        "prenom":"Prenom",
+        "adresse":"Adresse",
+        "phone":"Téléphone"
+
+    },
+    "common":{
+        "edit":"Modifier",
+        "delete": "Supprimer",
+        "save": "Sauvgarder",
+        "cancel": "Annuler",
+        "config":"Configuration",
+        "acceuil": "Acceuil"
+    }
 }

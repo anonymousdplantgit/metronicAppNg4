@@ -1,12 +1,26 @@
 {
-    "fournisseur": "Provider",
-    "acceuil": "Home",
-    "dashboard": "Dashboard",
-    "gestion.tableaudebord": "Dashboard administration",
-    "gestion.fournisseur": "Providers Management",
-    "edit": "Edit",
-    "delete": "Delete",
-    "loading": "Loading",
-    "wait": "Please Wait ...",
-    "config":"Settings"
+    "acceuil": "Acceuil",
+    "dashboard": {
+        "dashboard":"dashboard",
+        "admin":"Admin Dashboard"
+    },
+    "fournisseur":{
+        "gestion":"Providers Management",
+        "fournisseur": "Provider",
+        "ajouter": "Add Provider",
+        "liste": "Prodviders List",
+        "nom":"Last name",
+        "prenom":"First name",
+        "adresse":"Address",
+        "phone":"Phone number"
+
+    },
+    "common":{
+        "edit":"Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "cancel": "Cancel",
+        "config":"Settings",
+        "acceuil": "Home"
+    }
 }
