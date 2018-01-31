@@ -9,12 +9,13 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { ContainerComponent } from './layout/container/container.component';
 import { ThemePanelComponent } from './layout/theme-panel/theme-panel.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FournisseurModule } from './fournisseur/fournisseur.module';
 import { HttpModule } from '@angular/http';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { CategorieModule } from './categorie/categorie.module';
+import { ProductModule } from './product/product.module';
 
 
 
@@ -27,6 +28,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     HttpClientModule,
     HttpModule,
     FournisseurModule,
+    CategorieModule,
+    ProductModule,
     DashboardModule,
     TranslateModule.forRoot({
       loader: {

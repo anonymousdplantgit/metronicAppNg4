@@ -15,6 +15,28 @@
         "phone":"Téléphone"
 
     },
+    "product":{
+        "gestion":"Gestion des Produits",
+        "product": "Produit",
+        "ajouter": "Ajouter Produits",
+        "liste": "Liste des Produits",
+        "ref":"Ref. Produit",
+        "label":"Libelle Produit",
+        "desc":"Description"
+
+    },
+    "categ":{
+        "gestion":"Gestion des Categories",
+        "categ": "Categories",
+        "ajouter": "Ajouter une Categorie",
+        "liste": "Liste de categories",
+        "ref":"Ref. Categorie",
+        "label":"Libelle Categorie",
+        "desc":"Description",
+        "achat":"Prix d'achat",
+        "vente":"Prix de vente"
+
+    },
     "common":{
         "edit":"Modifier",
         "delete": "Supprimer",

@@ -15,6 +15,28 @@
         "phone":"Phone number"
 
     },
+    "product":{
+        "gestion":"Products Management",
+        "product": "Provider",
+        "ajouter": "Add Product",
+        "liste": "products List",
+        "ref":"Ref",
+        "label":"Label",
+        "desc":"Description",
+        "achat":"Buying Price",
+        "vente":"Selling Price"
+
+    },
+    "categ":{
+        "gestion":"Categories Management",
+        "categ": "Categories",
+        "ajouter": "Add Category",
+        "liste": "Categories List",
+        "ref":"Ref",
+        "label":"Label",
+        "desc":"Description"
+
+    },
     "common":{
         "edit":"Edit",
         "delete": "Delete",
