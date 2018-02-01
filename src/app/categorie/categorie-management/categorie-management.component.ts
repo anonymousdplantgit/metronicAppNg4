@@ -53,6 +53,7 @@ export class CategorieManagementComponent implements OnInit {
 
       }
       this.reset();
+      this.getAll();
 }
   getAll() {
     this.spinnerService.show();

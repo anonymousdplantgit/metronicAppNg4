@@ -1,7 +1,6 @@
 {
-    "acceuil": "Acceuil",
     "dashboard": {
-        "dashboard":"dashboard",
+        "dashboard":"Dashboard",
         "admin":"Admin Dashboard"
     },
     "fournisseur":{
@@ -17,7 +16,7 @@
     },
     "product":{
         "gestion":"Products Management",
-        "product": "Provider",
+        "product": "Product",
         "ajouter": "Add Product",
         "liste": "products List",
         "ref":"Ref",
