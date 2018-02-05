@@ -16,6 +16,8 @@ import { HttpModule } from '@angular/http';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CategorieModule } from './categorie/categorie.module';
 import { ProductModule } from './product/product.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -24,13 +26,14 @@ import { ProductModule } from './product/product.module';
   imports: [
     AppRoutingModule,
     Ng4LoadingSpinnerModule,
-    BrowserModule,
     HttpClientModule,
     HttpModule,
     FournisseurModule,
     CategorieModule,
     ProductModule,
     DashboardModule,
+    BrowserModule,
+    BrowserAnimationsModule, // required animations module
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

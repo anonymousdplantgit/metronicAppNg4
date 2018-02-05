@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { CategorieRoutingModule } from './categorie-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ToastrModule,ToastContainerModule  } from 'ngx-toastr';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -14,7 +17,13 @@ import { SharedModule } from '../shared/shared.module';
     CategorieRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng4LoadingSpinnerModule.forRoot()
+    Ng4LoadingSpinnerModule.forRoot(),
+    ToastrModule.forRoot({timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,}), // ToastrModule added
+    ToastContainerModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     
   ],
   declarations: [CategorieManagementComponent]

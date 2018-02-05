@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { Http ,Response} from '@angular/http';
 import { Product } from './product';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class ProductService {
  
-  private apiUrl = ' http://localhost:8080/produits';
-  //private apiUrl = 'https://global-management-application.herokuapp.com/produits';
+  //private apiUrl = ' http://localhost:8080/produits';
+  private apiUrl = 'https://global-management-application.herokuapp.com/produits';
   constructor(private http: Http) { }
   findAll(): Observable<Product[]>  {
     return this.http.get(this.apiUrl)

@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild  } from '@angular/core';
 import { Categorie } from '../categorie';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../../app.component';
 import { CategorieService } from '../categorie.service';
+import { ToastrService,ToastContainerDirective } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-categorie-management',
   templateUrl: './categorie-management.component.html',
   styleUrls: ['./categorie-management.component.css'],
-  providers: [CategorieService]
+  providers: [CategorieService,ToastrService]
 })
 export class CategorieManagementComponent implements OnInit {
 
+  @ViewChild(ToastContainerDirective) toastContainer: ToastContainerDirective;
+ 
   public categorie: Categorie;
   form: FormGroup;
   message:string;
@@ -22,10 +26,10 @@ export class CategorieManagementComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private restService: CategorieService,
-    private spinnerService: Ng4LoadingSpinnerService) { }
+    private spinnerService: Ng4LoadingSpinnerService,private toastrService: ToastrService) { }
 
   ngOnInit() {
-
+    this.toastrService.overlayContainer = this.toastContainer;
     this.getAll();
 
 
@@ -48,12 +52,14 @@ export class CategorieManagementComponent implements OnInit {
           this.form.controls['label'].value,
           this.form.controls['description'].value);
         this.restService.save(element).subscribe(
-          response =>this.message="Added",
-          error =>  this.message = <any>error);
+          response =>  this.toastrService.success('Saved with success', ''),
+          error =>  this.toastrService.error(error, 'Major Error', {timeOut: 3000,})
+        );
 
       }
       this.reset();
       this.getAll();
+
 }
   getAll() {
     this.spinnerService.show();
@@ -75,12 +81,19 @@ export class CategorieManagementComponent implements OnInit {
   delete(element: Categorie) {
     if (element) {
       this.restService.deleteById(element.categorieId).subscribe(
-        res => {
+        res => { 
+          console.log(res.json);
+          console.log(res);
+          res.valueOf();
           this.getAll();
           console.log('delete Categorie '+ element.categorieId+' done');
           this.message="Deleted successfully";
         },
-        error =>  this.message = <any>error
+        error =>  {
+          this.message = <any>error;
+           console.log(error);
+           this.toastrService.error(error, 'Major Error', {timeOut: 3000,});
+         }
       );
     }
   }
@@ -88,7 +101,7 @@ export class CategorieManagementComponent implements OnInit {
   edit(element: Categorie) {
     console.log(element);
     this.form.patchValue({
-      produitId: element.categorieId,
+      categorieId: element.categorieId,
       ref: element.ref,
       label: element.label,
       description: element.description

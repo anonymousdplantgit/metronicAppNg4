@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http ,Response} from '@angular/http';
 import { Categorie } from './categorie';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class CategorieService {
-  private apiUrl = ' http://localhost:8080/categories';
-  //private apiUrl = 'https://global-management-application.herokuapp.com/categories';
+  //private apiUrl = ' http://localhost:8080/categories';
+  private apiUrl = 'https://global-management-application.herokuapp.com/categories';
   constructor(private http: Http) { }
   findAll(): Observable<Categorie[]>  {
     return this.http.get(this.apiUrl)
@@ -27,7 +29,7 @@ export class CategorieService {
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
  
-  deleteById(id: number): Observable<boolean> {
+  deleteById(id: number): Observable<Response> {
     return this.http.delete(this.apiUrl + '/' + id)
     .map((res:Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
