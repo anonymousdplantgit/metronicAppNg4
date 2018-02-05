@@ -7,12 +7,12 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { AppComponent } from '../../app.component';
 import { CategorieService } from '../../categorie/categorie.service';
 import { Categorie } from '../../categorie/categorie';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-product-management',
   templateUrl: './product-management.component.html',
   styleUrls: ['./product-management.component.css'],
-  providers: [ProductService,CategorieService]
+  providers: [ProductService,CategorieService,ToastrService]
 })
 export class ProductManagementComponent implements OnInit,OnDestroy {
   public product: Product;
@@ -24,7 +24,8 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService,private categorieService: CategorieService,
-    private spinnerService: Ng4LoadingSpinnerService) { }
+    private spinnerService: Ng4LoadingSpinnerService,
+    private toastrService: ToastrService) { }
 
   ngOnInit() {
 
@@ -56,8 +57,9 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
           this.form.controls['prixVente'].value,
           this.form.controls['categorie'].value);
         this.productService.save(product).subscribe(
-          response =>this.message="Added",
-          error =>  this.message = <any>error);
+          response =>  this.toastrService.success('Saved with success', ''),
+          error =>  this.toastrService.error(error, '', {timeOut: 3000,})
+        );
 
       }
       this.reset();
@@ -71,7 +73,7 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
         console.log(cats);
       },
       err => {
-        this.message="Error loading Data : "+err;
+        this.toastrService.error(err, 'Error loading Data :', {timeOut: 3000,})
         console.log(err);
       } 
     );
@@ -82,7 +84,7 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
         this.spinnerService.hide();
       },
       err => {
-        this.message="Error loading Data : "+err;
+        this.toastrService.error(err, 'Error loading Data :', {timeOut: 3000,})
         console.log(err);
         this.spinnerService.hide();
       }
@@ -97,9 +99,12 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
         res => {
           this.getAll();
           console.log('delete product '+ product.produitId+' done');
-          this.message="Deleted successfully";
+          this.toastrService.success("Deleted successfully", '', {timeOut: 3000,})
         },
-        error =>  this.message = <any>error
+        error =>  {
+           console.log(error);
+           this.toastrService.error(error, '', {timeOut: 3000,});
+         }
       );
     }
   }

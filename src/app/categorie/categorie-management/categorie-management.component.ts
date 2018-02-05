@@ -5,7 +5,7 @@ import {ActivatedRoute, Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../../app.component';
 import { CategorieService } from '../categorie.service';
-import { ToastrService,ToastContainerDirective } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -16,7 +16,7 @@ import { ToastrService,ToastContainerDirective } from 'ngx-toastr';
 })
 export class CategorieManagementComponent implements OnInit {
 
-  @ViewChild(ToastContainerDirective) toastContainer: ToastContainerDirective;
+  //@ViewChild(ToastContainerDirective) toastContainer: ToastContainerDirective;
  
   public categorie: Categorie;
   form: FormGroup;
@@ -26,10 +26,11 @@ export class CategorieManagementComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private restService: CategorieService,
-    private spinnerService: Ng4LoadingSpinnerService,private toastrService: ToastrService) { }
+    private spinnerService: Ng4LoadingSpinnerService,
+    private toastrService: ToastrService) { }
 
   ngOnInit() {
-    this.toastrService.overlayContainer = this.toastContainer;
+    //this.toastrService.overlayContainer = this.toastContainer;
     this.getAll();
 
 
@@ -53,7 +54,7 @@ export class CategorieManagementComponent implements OnInit {
           this.form.controls['description'].value);
         this.restService.save(element).subscribe(
           response =>  this.toastrService.success('Saved with success', ''),
-          error =>  this.toastrService.error(error, 'Major Error', {timeOut: 3000,})
+          error =>  this.toastrService.error(error, '', {timeOut: 3000,})
         );
 
       }
@@ -70,7 +71,7 @@ export class CategorieManagementComponent implements OnInit {
         this.spinnerService.hide();
       },
       err => {
-        this.message="Error loading Data : "+err;
+        this.toastrService.error(err, 'Error loading Data :', {timeOut: 3000,})
         console.log(err);
       }
  
@@ -82,17 +83,13 @@ export class CategorieManagementComponent implements OnInit {
     if (element) {
       this.restService.deleteById(element.categorieId).subscribe(
         res => { 
-          console.log(res.json);
-          console.log(res);
-          res.valueOf();
           this.getAll();
           console.log('delete Categorie '+ element.categorieId+' done');
-          this.message="Deleted successfully";
+          this.toastrService.success("Deleted successfully", '', {timeOut: 3000,})
         },
         error =>  {
-          this.message = <any>error;
            console.log(error);
-           this.toastrService.error(error, 'Major Error', {timeOut: 3000,});
+           this.toastrService.error(error, '', {timeOut: 3000,});
          }
       );
     }

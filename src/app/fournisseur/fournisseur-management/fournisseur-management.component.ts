@@ -5,12 +5,13 @@ import {ActivatedRoute, Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../../app.component';
 import { FournisseurService } from '../fournisseur.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-fournisseur-management',
   templateUrl: './fournisseur-management.component.html',
   styleUrls: ['./fournisseur-management.component.css'],
-  providers: [FournisseurService]
+  providers: [FournisseurService,ToastrService]
 })
 export class FournisseurManagementComponent implements OnInit {
 
@@ -22,8 +23,8 @@ export class FournisseurManagementComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private restService: FournisseurService,
-    private spinnerService: Ng4LoadingSpinnerService, 
-    private app: AppComponent) { }
+    private spinnerService: Ng4LoadingSpinnerService,
+    private toastrService: ToastrService) { }
 
   ngOnInit() {
 
@@ -35,8 +36,7 @@ export class FournisseurManagementComponent implements OnInit {
       nom: new FormControl(null, Validators.required),
       prenom: new FormControl(null, Validators.required),
       phone: new FormControl(null, Validators.required),
-      adresse: new FormControl(null, Validators.required),
-      message : new FormControl()
+      adresse: new FormControl(null, Validators.required)
     });
   }
   ngOnDestroy(): void {
@@ -51,8 +51,9 @@ export class FournisseurManagementComponent implements OnInit {
           this.form.controls['phone'].value,
           this.form.controls['adresse'].value);
         this.restService.save(element).subscribe(
-          response =>this.message="Added",
-          error =>  this.message = <any>error);
+          response =>  this.toastrService.success('Saved with success', ''),
+          error =>  this.toastrService.error(error, '', {timeOut: 3000,})
+        );
 
       }
       this.reset();
@@ -67,7 +68,7 @@ export class FournisseurManagementComponent implements OnInit {
         this.spinnerService.hide();
       },
       err => {
-        this.message="Error loading Data : "+err;
+        this.toastrService.error(err, 'Error loading Data :', {timeOut: 3000,})
         console.log(err);
       }
  
@@ -81,9 +82,12 @@ export class FournisseurManagementComponent implements OnInit {
         res => {
           this.getAll();
           console.log('delete Categorie '+ element.fournisseurId+' done');
-          this.message="Deleted successfully";
+          this.toastrService.success("Deleted successfully", '', {timeOut: 3000,})
         },
-        error =>  this.message = <any>error
+        error => {
+          console.log(error);
+          this.toastrService.error(error, '', {timeOut: 3000,});
+        }
       );
     }
   }

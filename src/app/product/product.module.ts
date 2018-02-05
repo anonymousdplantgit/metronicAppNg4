@@ -6,6 +6,7 @@ import { ProductManagementComponent } from './product-management/product-managem
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { SharedModule } from '../shared/shared.module';
+import { ToastrModule  } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -14,7 +15,10 @@ import { SharedModule } from '../shared/shared.module';
     ProductRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng4LoadingSpinnerModule.forRoot()
+    Ng4LoadingSpinnerModule.forRoot(),
+    ToastrModule.forRoot({timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: false,}), // ToastrModule added
   ],
   declarations: [ProductManagementComponent]
 })

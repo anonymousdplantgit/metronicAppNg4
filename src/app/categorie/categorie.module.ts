@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { CategorieRoutingModule } from './categorie-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { ToastrModule,ToastContainerModule  } from 'ngx-toastr';
+import { ToastrModule  } from 'ngx-toastr';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,8 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Ng4LoadingSpinnerModule.forRoot(),
     ToastrModule.forRoot({timeOut: 10000,
       positionClass: 'toast-bottom-right',
-      preventDuplicates: true,}), // ToastrModule added
-    ToastContainerModule,
+      preventDuplicates: false,}), // ToastrModule added
     BrowserModule,
     BrowserAnimationsModule,
     

@@ -7,6 +7,8 @@ import { FournisseurManagementComponent } from './fournisseur-management/fournis
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
+import { ToastrModule  } from 'ngx-toastr';
+
 
 @NgModule({
   imports: [
@@ -16,6 +18,9 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     Ng4LoadingSpinnerModule.forRoot(),
+    ToastrModule.forRoot({timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: false,}), // ToastrModule added
      ],
   declarations: [FournisseurManagementComponent]
 })
