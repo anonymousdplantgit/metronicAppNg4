@@ -10,8 +10,8 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class ProductService {
  
-  private apiUrl = ' http://localhost:8080/produits';
-  //private apiUrl = 'https://global-management-application.herokuapp.com/produits';
+  //private apiUrl = ' http://localhost:8080/produits';
+  private apiUrl = 'https://global-management-application.herokuapp.com/produits';
   constructor(private http: Http) { }
   findAll(): Observable<Product[]>  {
     return this.http.get(this.apiUrl)

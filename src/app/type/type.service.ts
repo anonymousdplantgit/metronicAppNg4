@@ -9,8 +9,8 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class TypeService {
-private apiUrl = ' http://localhost:8080/types';
-//private apiUrl = 'https://global-management-application.herokuapp.com/types';
+//private apiUrl = ' http://localhost:8080/types';
+private apiUrl = 'https://global-management-application.herokuapp.com/types';
 constructor(private http: Http) { }
 findAll(): Observable<Type[]>  {
   return this.http.get(this.apiUrl)
