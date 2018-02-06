@@ -1,8 +1,35 @@
 {
+    "common":{
+        "edit":"Modifier",
+        "delete": "Supprimer",
+        "save": "Sauvgarder",
+        "cancel": "Annuler",
+        "config":"Configuration",
+        "acceuil": "Acceuil",
+        "action": "Action",
+        "type":"Types de projet",
+        "state":"Etats de projet",
+        "resource":"Ressources de projet",
+        "project":"gestion de Projet",
+        "stock":"gestion de Stock"
+        
+    },
+
+    "messages":{
+        "edit":"Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "cancel": "Cancel",
+        "config":"Settings",
+        "acceuil": "Home",
+        "action": "Action"
+    },
+
     "dashboard": {
         "dashboard":"Tableau de bord",
         "admin":"Admin Tableau de bord"
     },
+
     "fournisseur":{
         "gestion":"Gestion des founisseurs",
         "fournisseur": "Fournisseur",
@@ -14,6 +41,7 @@
         "phone":"Téléphone"
 
     },
+
     "product":{
         "gestion":"Gestion des Produits",
         "product": "Produit",
@@ -24,6 +52,7 @@
         "desc":"Description"
 
     },
+
     "categ":{
         "gestion":"Gestion des Categories",
         "categ": "Categories",
@@ -36,12 +65,32 @@
         "vente":"Prix de vente"
 
     },
-    "common":{
-        "edit":"Modifier",
-        "delete": "Supprimer",
-        "save": "Sauvgarder",
-        "cancel": "Annuler",
-        "config":"Configuration",
-        "acceuil": "Acceuil"
+
+    "resource":{
+        "gestion":"Gestion des Ressources",
+        "resource": "Ressources",
+        "ajouter": "Ajouter une Ressources",
+        "liste": "Liste de Ressources",
+        "code":"Code resource",
+        "firstname":"Prénom",
+        "lastname":"Nom"
+    },
+
+    "type":{
+        "gestion":"Gestion des Types des projets",
+        "type": "Types",
+        "ajouter": "Ajouter un Type",
+        "liste": "Liste des Types",
+        "code":"Code Type",
+        "label":"Libelle Type"
+    },
+
+    "state":{
+        "gestion":"Gestion des Etats des projets",
+        "resource": "Etats",
+        "ajouter": "Ajouter un Etat",
+        "liste": "State List",
+        "code":"Code Etat",
+        "label":"Libelle Etat"
     }
 }

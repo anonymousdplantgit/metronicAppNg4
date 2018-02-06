@@ -18,6 +18,9 @@ import { CategorieModule } from './categorie/categorie.module';
 import { ProductModule } from './product/product.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ResourceModule } from './resource/resource.module';
+import { TypeModule } from './type/type.module';
+import { StateModule } from './state/state.module';
 
 
 
@@ -32,6 +35,9 @@ import { ToastrModule } from 'ngx-toastr';
     CategorieModule,
     ProductModule,
     DashboardModule,
+    ResourceModule,
+    TypeModule,
+    StateModule,
     BrowserModule,
     BrowserAnimationsModule, // required animations module
     TranslateModule.forRoot({

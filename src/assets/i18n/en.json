@@ -1,4 +1,27 @@
-{
+{   "common":{
+        "edit":"Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "cancel": "Cancel",
+        "config":"Settings",
+        "acceuil": "Home",
+        "action": "Action",
+        "type":"Project Types",
+        "state":"Project States",
+        "resource":"Project Resources",
+        "project":"Project Management",
+        "stock":"Stock Resources"
+    },
+    "messages":{
+        "edit":"Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "cancel": "Cancel",
+        "config":"Settings",
+        "acceuil": "Home",
+        "action": "Action"
+    },
+
     "dashboard": {
         "dashboard":"Dashboard",
         "admin":"Admin Dashboard"
@@ -36,12 +59,33 @@
         "desc":"Description"
 
     },
-    "common":{
-        "edit":"Edit",
-        "delete": "Delete",
-        "save": "Save",
-        "cancel": "Cancel",
-        "config":"Settings",
-        "acceuil": "Home"
+    
+    "resource":{
+        "gestion":"Ressources Management",
+        "resource": "Resources",
+        "ajouter": "Add Resource",
+        "liste": "Resources List",
+        "code":"Code",
+        "firstname":"First name",
+        "lastname":"Last name"
+    },
+
+    "type":{
+        "gestion":"Types Management",
+        "type": "Types",
+        "ajouter": "Add Types",
+        "liste": "Type List",
+        "code":"Type Code",
+        "label":"Type Label"
+    },
+
+    "state":{
+        "gestion":"States Management",
+        "resource": "States",
+        "ajouter": "Add State",
+        "liste": "States List",
+        "code":"State Code",
+        "label":"Type Label"
     }
+    
 }

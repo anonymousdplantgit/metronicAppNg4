@@ -1,0 +1,128 @@
+
+
+ <!-- BEGIN PAGE BAR -->
+ <div class="page-bar">
+  <ul class="page-breadcrumb">
+     <li>
+        <a href="/" translate>common.acceuil</a>
+        <i class="fa fa-circle"></i>
+     </li>
+     <li>
+        <span translate>state.state</span>
+     </li>
+  </ul>
+  <div class="page-toolbar">
+     <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+        <i class="icon-calendar"></i>&nbsp;
+        <span class="thin uppercase hidden-xs"></span>&nbsp;
+        <i class="fa fa-angle-down"></i>
+     </div>
+  </div>
+</div>
+<!-- END PAGE BAR -->
+<h1 class="page-title" translate>state.gestion
+</h1>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
+<!-- BEGIN DASHBOARD STATS 1-->
+<div class="clearfix"></div>
+<div class="row">
+  <div class="col-md-12">
+     <div class="portlet box blue">
+        <div class="portlet-title">
+           <div class="caption" translate> 
+              <i class="fa fa-gift"></i>state.ajouter
+           </div>
+           <div class="tools">
+              <a href="javascript:;" class="collapse"> </a>
+              <a href="javascript:;" class="reload"> </a>
+              <a href="javascript:;" class="remove"> </a>
+           </div>
+        </div>
+        <div class="portlet-body form">
+           <!-- BEGIN FORM-->
+           <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()" class="horizontal-form">
+           <div class="form-body">
+              <div class="row">
+                 <div class="col-md-3 ">
+                    <div class="form-group">
+                       <label translate>state.code</label>
+                       <input state="text" class="form-control" formControlName="code">
+                    </div>
+                 </div>
+                 <div class="col-md-3">
+                    <div class="form-group">
+                       <label translate>state.label</label>
+                       <input state="text" class="form-control" formControlName="label">
+                    </div>
+                 </div>
+                 <!--/span-->
+              </div>
+              <div class="row">
+                  <div class="col-md-12 ">
+                     <div class="form-group">
+                        <pre>{{form.value | json}}</pre>
+                     </div>
+                     
+                  </div>
+                 
+               </div>
+
+              <!--/row-->
+           </div>
+           <div class="form-actions right">
+              <button state="button" class="btn default" (click)="reset()" translate>common.cancel</button>
+              <button state="submit" class="btn blue" [disabled]="!form.valid" translate>
+              <i class="fa fa-check"></i> common.save</button>
+           </div>
+           </form>
+           <!-- END FORM-->
+        </div>
+     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+     <!-- Begin: life time stats -->
+     <div class="portlet box blue">
+        <div class="portlet-title">
+           <div class="caption"translate>
+              <i class="fa fa-list" ></i>state.liste
+           </div>
+           <div class="tools">
+              <a href="javascript:;" class="collapse"> </a>
+              <a href="/fournisseur" class="reload"> </a>
+              <a href="javascript:;" class="remove"> </a>
+           </div>
+        </div>
+        <div class="portlet-body">
+           <div class="table-scrollable">
+              <table class="table table-striped table-hover">
+                 <thead>
+                    <tr>
+                       <th>#</th>
+                       <th translate>state.code</th>
+                       <th translate>state.label</th>
+                       <th translate>common.action</th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                    <tr *ngFor="let element of states">
+                       <th scope="row">{{element.stateId}}</th>
+                       <td>{{element.code}}</td>
+                       <td>{{element.label}}</td>
+                       <td>
+                          <a (click)="edit(element)" class="btn btn-outline btn-circle btn-sm purple" translate>
+                          <i class="fa fa-edit"></i> common.edit </a>
+                          <a (click)="delete(element)" class="btn btn-outline btn-circle dark btn-sm red" translate>
+                          <i class="fa fa-trash-o"></i> common.delete </a>
+                       </td>
+                    </tr>
+                 </tbody>
+              </table>
+           </div>
+        </div>
+     </div>
+     <!-- END SAMPLE TABLE PORTLET-->
+  </div>
+</div>
