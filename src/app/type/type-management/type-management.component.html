@@ -44,13 +44,13 @@
            <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()" class="horizontal-form">
            <div class="form-body">
               <div class="row">
-                 <div class="col-md-3 ">
+                 <div class="col-md-6 ">
                     <div class="form-group">
                        <label translate>type.code</label>
                        <input type="text" class="form-control" formControlName="code">
                     </div>
                  </div>
-                 <div class="col-md-3">
+                 <div class="col-md-6">
                     <div class="form-group">
                        <label translate>type.label</label>
                        <input type="text" class="form-control" formControlName="label">
@@ -58,17 +58,7 @@
                  </div>
                  <!--/span-->
               </div>
-              <div class="row">
-                  <div class="col-md-12 ">
-                     <div class="form-group">
-                        <pre>{{form.value | json}}</pre>
-                     </div>
-                     
-                  </div>
-                 
-               </div>
-
-              <!--/row-->
+             <!--/row-->
            </div>
            <div class="form-actions right">
               <button type="button" class="btn default" (click)="reset()" translate>common.cancel</button>
