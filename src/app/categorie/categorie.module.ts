@@ -19,8 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     Ng4LoadingSpinnerModule.forRoot(),
     ToastrModule.forRoot({timeOut: 10000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: false,}), // ToastrModule added
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,
+      closeButton:true,
+    progressBar:true}), // ToastrModule added
     BrowserModule,
     BrowserAnimationsModule,
     

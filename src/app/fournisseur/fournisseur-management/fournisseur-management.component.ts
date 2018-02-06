@@ -51,7 +51,7 @@ export class FournisseurManagementComponent implements OnInit {
           this.form.controls['phone'].value,
           this.form.controls['adresse'].value);
         this.restService.save(element).subscribe(
-          response =>  this.toastrService.success('Saved with success', ''),
+          response =>  this.toastrService.success('SAVED', ''),
           error =>  this.toastrService.error(error, '', {timeOut: 3000,})
         );
 
@@ -81,8 +81,8 @@ export class FournisseurManagementComponent implements OnInit {
       this.restService.deleteById(element.fournisseurId).subscribe(
         res => {
           this.getAll();
-          console.log('delete Categorie '+ element.fournisseurId+' done');
-          this.toastrService.success("Deleted successfully", '', {timeOut: 3000,})
+          console.log('DELETED '+ element.fournisseurId+' done');
+          this.toastrService.success("DELETED", '', {timeOut: 3000,})
         },
         error => {
           console.log(error);

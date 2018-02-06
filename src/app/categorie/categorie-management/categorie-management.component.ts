@@ -53,7 +53,7 @@ export class CategorieManagementComponent implements OnInit {
           this.form.controls['label'].value,
           this.form.controls['description'].value);
         this.restService.save(element).subscribe(
-          response =>  this.toastrService.success('Saved with success', ''),
+          response =>  this.toastrService.success('SAVED', ''),
           error =>  this.toastrService.error(error, '', {timeOut: 3000,})
         );
 
@@ -85,7 +85,7 @@ export class CategorieManagementComponent implements OnInit {
         res => { 
           this.getAll();
           console.log('delete Categorie '+ element.categorieId+' done');
-          this.toastrService.success("Deleted successfully", '', {timeOut: 3000,})
+          this.toastrService.success("DELETED", '', {timeOut: 3000,})
         },
         error =>  {
            console.log(error);
