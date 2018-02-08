@@ -9,8 +9,8 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ProjectService {
-  private apiUrl = ' http://localhost:8080/projects';
-  //private apiUrl = 'https://global-management-application.herokuapp.com/projects';
+  //private apiUrl = ' http://localhost:8080/projects';
+  private apiUrl = 'https://global-management-application.herokuapp.com/projects';
   constructor(private http: Http) { }
   findAll(): Observable<Project[]>  {
     return this.http.get(this.apiUrl)

@@ -10,8 +10,8 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class WorkOrderService {
-  private apiUrl = ' http://localhost:8080/workOrders';
-  //private apiUrl = 'https://global-management-application.herokuapp.com/workOrders';
+  //private apiUrl = ' http://localhost:8080/workOrders';
+  private apiUrl = 'https://global-management-application.herokuapp.com/workOrders';
   constructor(private http: Http) { }
   findAll(): Observable<WorkOrder[]>  {
     return this.http.get(this.apiUrl)

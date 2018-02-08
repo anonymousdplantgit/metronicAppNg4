@@ -11,8 +11,8 @@ import { Task } from './task';
 
 @Injectable()
 export class TaskService {
-  private apiUrl = ' http://localhost:8080/tasks';
-  //private apiUrl = 'https://global-management-application.herokuapp.com/tasks';
+  //private apiUrl = ' http://localhost:8080/tasks';
+  private apiUrl = 'https://global-management-application.herokuapp.com/tasks';
   constructor(private http: Http) { }
   findAll(): Observable<Task[]>  {
     return this.http.get(this.apiUrl)
