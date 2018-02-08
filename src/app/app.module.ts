@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ResourceModule } from './resource/resource.module';
 import { TypeModule } from './type/type.module';
 import { StateModule } from './state/state.module';
+import { ProjectModule } from './project/project.module';
 
 
 
@@ -38,6 +39,7 @@ import { StateModule } from './state/state.module';
     ResourceModule,
     TypeModule,
     StateModule,
+    ProjectModule,
     BrowserModule,
     BrowserAnimationsModule, // required animations module
     TranslateModule.forRoot({

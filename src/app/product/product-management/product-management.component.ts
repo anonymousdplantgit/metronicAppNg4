@@ -17,7 +17,6 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductManagementComponent implements OnInit,OnDestroy {
   public product: Product;
   form: FormGroup;
-  message:string;
   public products: Product[];
   public cats: Categorie[];
   constructor(
@@ -40,7 +39,6 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
       prixAchat: new FormControl(null, Validators.required),
       prixVente: new FormControl(null, Validators.required),
       categorie: new FormControl(null, Validators.required),
-      message : new FormControl()
     });
   }
   ngOnDestroy(): void {
@@ -67,16 +65,7 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
 }
   getAll() {
     this.spinnerService.show();
-    this.categorieService.findAll().subscribe(
-      cats => {
-        this.cats = cats;
-        console.log(cats);
-      },
-      err => {
-        this.toastrService.error(err, 'Error loading Data :', {timeOut: 3000,})
-        console.log(err);
-      } 
-    );
+    this.getCategories();
     this.productService.findAll().subscribe(
       products => {
         this.products = products;
@@ -125,6 +114,19 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
   reset() {
     this.form.reset();
  
+  }
+
+  getCategories(){
+    this.categorieService.findAll().subscribe(
+      cats => {
+        this.cats = cats;
+        console.log(cats);
+      },
+      err => {
+        this.toastrService.error(err, 'Error loading Data :', {timeOut: 3000,})
+        console.log(err);
+      } 
+    );
   }
 
 }
