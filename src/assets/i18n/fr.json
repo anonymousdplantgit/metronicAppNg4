@@ -12,6 +12,7 @@
         "resource":"Ressources de projet",
         "project":"gestion de Projet",
         "stock":"gestion de Stock",
+        "tasks":"Voir les Tâches",
         "subtasks":"Voir les sous-tâches"
         
     },
@@ -93,6 +94,17 @@
         "liste": "State List",
         "code":"Code Etat",
         "label":"Libelle Etat"
+    },
+
+    "project":{
+        "project":"Projets",
+        "gestion":"Gestion des Projets",
+        "liste":"Liste des Projets",
+        "ajouter":"Ajouter un Projet",
+        "code":"Code de projet",
+        "type":"Type de Projet",
+        "state":"Etat de Projet",
+        "label":"Libelle de Projet"
     },
 
     "task":{

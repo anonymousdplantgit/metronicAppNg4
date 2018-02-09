@@ -58,19 +58,21 @@
                    </div>
                    <!--/span-->
 
-                   <div class="col-md-2">
+                   <div class="col-md-3">
                         <div class="form-group">
-                           <label translate>project.type</label>
-                           <select class="form-control" formControlName="type">
+                            <label ><a href="/type" translate>project.type</a> +</label>
+                            <select class="form-control" formControlName="type">
                                     <option *ngFor="let element of types" [ngValue]="element" [selected]="type != null && type != 'undefined' && element.typeId === type.typeId">
                                                 {{ element.code }}
                                     </option>
-                                </select>
+                                    
+                            </select>
+                            
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                             <div class="form-group">
-                               <label translate>project.state</label>
+                               <label ><a href="/state" translate>project.state</a> + </label>
                                <select class="form-control" formControlName="state">
                                         <option *ngFor="let element of states" [ngValue]="element" [selected]="state != null && state != 'undefined' && element.stateId === state.stateId">
                                                     {{ element.code }}
@@ -138,13 +140,15 @@
                          <td>{{element.type.code}}</td>
                          <td>{{element.state.code}}</td>
                          <td>
-                            
-                            <a (click)="redirectTaskManagementPage(element)" class="btn btn-outline btn-circle btn-sm purple" translate>
-                            <i class="fa fa-edit"></i> common.tasks </a> 
                             <a (click)="edit(element)" class="btn btn-outline btn-circle btn-sm purple" translate>
                             <i class="fa fa-edit"></i> common.edit </a>
+
                             <a (click)="delete(element)" class="btn btn-outline btn-circle dark btn-sm red" translate>
                             <i class="fa fa-trash-o"></i> common.delete </a>
+
+                            <a (click)="redirectTaskManagementPage(element)" class="btn btn-outline btn-circle btn-sm blue" translate>
+                             <i class="fa fa-edit"></i> common.tasks </a> 
+                
                          </td>
                       </tr>
                    </tbody>

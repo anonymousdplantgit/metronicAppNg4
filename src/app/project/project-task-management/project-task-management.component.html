@@ -8,6 +8,10 @@
           <i class="fa fa-circle"></i>
        </li>
        <li>
+          <a href="/project" translate>project.project</a>
+            <i class="fa fa-circle"></i>
+       </li>
+       <li>
           <span translate>task.task</span>
        </li>
     </ul>
@@ -44,42 +48,46 @@
 
           <div class="portlet-body">
              <div class="table-scrollable">
-               <!-- <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()" class="horizontal-form">
+                <form novalidate [formGroup]="formWo" (ngSubmit)="onSubmitWo()" class="horizontal-form">
                     <div class="form-body">
                        <div class="row">
                           <div class="col-md-3">
                              <div class="form-group">
-                                <label translate>categ.label</label>
+                                <label translate>task.label</label>
                                 <input type="text" class="form-control" formControlName="label">
                              </div>
                           </div>
                           <div class="col-md-3">
                              <div class="form-group">
-                                <label translate>categ.desc</label>
+                                <label translate>task.estimatedCost</label>
                                 <input type="text" class="form-control" formControlName="estimatedCost">
                              </div>
                           </div>
                           <div class="col-md-3">
                               <div class="form-group">
-                                 <label translate>categ.desc</label>
+                                 <label translate>task.estimatedEndDate</label>
                                  <input type="text" class="form-control" formControlName="estimatedEndDate">
                               </div>
                            </div>
                            <div class="col-md-3">
                               <div class="form-group">
-                                 <label translate>categ.desc</label>
-                                 <input type="text" class="form-control" formControlName="ressource">
+                                      <label ><a href="/resource" translate>task.resource</a> + </label>
+                                      <select class="form-control" formControlName="ressource">
+                                               <option *ngFor="let element of resources" [ngValue]="element" [selected]="ressource != null && ressource != 'undefined' && element.ressourceId === resource.ressourceId">
+                                                           {{ element.code }}
+                                               </option>
+                                           </select>
                               </div>
                            </div>
                           
                        </div>
                     </div>
                     <div class="form-actions right">
-                       <button type="button" class="btn default" (click)="reset()" translate>common.cancel</button>
-                       <button type="submit" class="btn blue" [disabled]="!form.valid" translate>
+                       <button type="button" class="btn default" (click)="resetWo()" translate>common.cancel</button>
+                       <button type="submit" class="btn blue" [disabled]="!formWo.valid" translate>
                        <i class="fa fa-check"></i> common.save</button>
                     </div>
-                    </form>-->
+                    </form>
                <table class="table table-striped table-hover">
                    <thead>
                       <tr>
@@ -96,12 +104,12 @@
                          <th scope="row">{{element.workorderId}}</th>
                          <td>{{element.label}}</td>
                          <td>{{element.estimatedCost}}</td>
-                         <td>{{element.estimatedEndDate}}</td>
+                         <td>{{element.estimatedEndDate | date: 'dd/MM/yyyy'}}</td>
                          <td>{{element.ressource.code}}</td>
                          <td>
                             
                            
-                            <a (click)="edit(element)" class="btn btn-outline btn-circle btn-sm purple" translate>
+                            <a (click)="editWo(element)" class="btn btn-outline btn-circle btn-sm purple" translate>
                             <i class="fa fa-edit"></i> common.edit </a>
                             <a (click)="deleteWo(element)" class="btn btn-outline btn-circle dark btn-sm red" translate>
                             <i class="fa fa-trash-o"></i> common.delete </a>
@@ -148,7 +156,7 @@
                       <tr *ngFor="let element of tasks">
                          <th scope="row">{{element.taskId}}</th>
                          <td>{{element.label}}</td>
-                         <td>{{element.taskDate}}</td>
+                         <td>{{element.taskDate | date: 'dd/MM/yyyy'}}</td>
                          <td>{{element.cost}}</td>
                          <td>
                             <a (click)="edit(element)" class="btn btn-outline btn-circle btn-sm purple" translate>

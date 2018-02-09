@@ -11,6 +11,7 @@
         "resource":"Project Resources",
         "project":"Project Management",
         "stock":"Stock Resources",
+        "tasks":"Show Tasks",
         "subtasks":"Show sub-tasks"
     },
     "messages":{
@@ -87,6 +88,17 @@
         "liste": "States List",
         "code":"State Code",
         "label":"Type Label"
+    },
+
+    "project":{
+        "project":"Projects",
+        "gestion":"Projects Management",
+        "liste":"Project List",
+        "ajouter":"Add new Project",
+        "code":"Project Code",
+        "type":"Project Type",
+        "state":"Project State",
+        "label":"Project Label"
     },
     
     "task":{

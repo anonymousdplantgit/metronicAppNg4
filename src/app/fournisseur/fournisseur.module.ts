@@ -18,7 +18,7 @@ import { ToastrModule  } from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     Ng4LoadingSpinnerModule.forRoot(),
-    ToastrModule.forRoot({timeOut: 10000,
+    ToastrModule.forRoot({timeOut: 2000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: false,}), // ToastrModule added
      ],
