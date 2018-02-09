@@ -10,7 +10,8 @@
         "state":"Project States",
         "resource":"Project Resources",
         "project":"Project Management",
-        "stock":"Stock Resources"
+        "stock":"Stock Resources",
+        "subtasks":"Show sub-tasks"
     },
     "messages":{
         "edit":"Edit",
@@ -86,6 +87,26 @@
         "liste": "States List",
         "code":"State Code",
         "label":"Type Label"
+    },
+    
+    "task":{
+        "task":"Tasks Management",
+        "gestion":"Manage Tasks for project  : ",
+        "liste": "Tasks List",
+        "ajouter": "Add new Task",
+        "estimatedCost": "Estimated Cost",
+        "estimatedEndDate":"Estimated End Date",
+        "ressource": "Affected To",
+        "label":"Task Label"
+    },
+
+    "subtask":{
+        "gestion":"Manage Sub-Tasks for Task  :  ",
+        "cost": "Consumed Effort",
+        "ajouter": "Add new Sub-Task",
+        "liste": "Sub-Tasks List for Task : ",
+        "taskDate":"Sub-Task Date",
+        "label":"Sub-Task Label"
     }
     
 }

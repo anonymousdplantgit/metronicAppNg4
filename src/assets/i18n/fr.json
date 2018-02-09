@@ -11,7 +11,8 @@
         "state":"Etats de projet",
         "resource":"Ressources de projet",
         "project":"gestion de Projet",
-        "stock":"gestion de Stock"
+        "stock":"gestion de Stock",
+        "subtasks":"Voir les sous-tâches"
         
     },
 
@@ -92,5 +93,25 @@
         "liste": "State List",
         "code":"Code Etat",
         "label":"Libelle Etat"
+    },
+
+    "task":{
+        "task":"Gestion des tâches",
+        "gestion":"Gestion des tâches pour le projet : ",
+        "liste": "Liste des tâches",
+        "ajouter": "Ajouter une tâche",
+        "estimatedCost": "Charge estimé",
+        "estimatedEndDate":"Date fin estimé",
+        "ressource": "Affecté à",
+        "label":"Libelle de tâche"
+    },
+
+    "subtask":{
+        "gestion":"Gestion des sous-tâches pour la tâche : ",
+        "cost": "Charge consommée",
+        "ajouter": "Ajouter un Etat",
+        "liste": "Liste des sous-tâches pour la tâche : ",
+        "taskDate":"Date de tâche",
+        "label":"Libelle de sous-tâche"
     }
 }

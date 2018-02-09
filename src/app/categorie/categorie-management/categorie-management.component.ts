@@ -20,7 +20,7 @@ export class CategorieManagementComponent implements OnInit {
  
   public categorie: Categorie;
   form: FormGroup;
-  message:string;
+
   public categories: Categorie[];
   constructor(
     private route: ActivatedRoute,
@@ -33,13 +33,11 @@ export class CategorieManagementComponent implements OnInit {
     //this.toastrService.overlayContainer = this.toastContainer;
     this.getAll();
 
-
     this.form = new FormGroup({
       categorieId : new FormControl(),
       ref: new FormControl(null, Validators.required),
       label: new FormControl(null, Validators.required),
-      description: new FormControl(null, Validators.required),
-      message : new FormControl()
+      description: new FormControl(null, Validators.required)
     });
   }
   ngOnDestroy(): void {
@@ -63,6 +61,7 @@ export class CategorieManagementComponent implements OnInit {
 
 }
   getAll() {
+    
     this.spinnerService.show();
     this.restService.findAll().subscribe(
       elements => {

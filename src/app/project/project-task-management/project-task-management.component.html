@@ -20,20 +20,20 @@
     </div>
  </div>
  <!-- END PAGE BAR -->
- <h1 class="page-title" >task.gestion
+ <h1 class="page-title" *ngIf="project" translate>{{ 'task.gestion' | translate }} {{project.label}}
  </h1>
  <!-- END PAGE TITLE-->
  <!-- END PAGE HEADER-->
  <!-- BEGIN DASHBOARD STATS 1-->
  <div class="clearfix"></div>
 
- <div class="row">
+ <div class="row" *ngIf="workOrders">
     <div class="col-md-12">
        <!-- Begin: life time stats -->
        <div class="portlet box blue">
           <div class="portlet-title">
              <div class="caption"translate>
-                <i class="fa fa-list" ></i>task.liste
+                <i class="fa fa-list" ></i>task.liste 
              </div>
              <div class="tools">
                 <a href="javascript:;" class="collapse"> </a>
@@ -118,13 +118,13 @@
     </div>
  </div>
 
- <div class="row">
+ <div class="row" *ngIf="tasks">
     <div class="col-md-12">
        <!-- Begin: life time stats -->
-       <div class="portlet box blue">
+       <div class="portlet box green">
           <div class="portlet-title">
-             <div class="caption"translate>
-                <i class="fa fa-list" ></i>subtask.liste
+             <div class="caption" *ngIf="workOder">
+                <i class="fa fa-list" ></i>{{ 'subtask.liste' | translate }}  {{workOder.label}}
              </div>
              <div class="tools">
                 <a href="javascript:;" class="collapse"> </a>
