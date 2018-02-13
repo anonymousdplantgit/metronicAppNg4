@@ -12,6 +12,7 @@ import { WorkOrder } from '../work-order';
 import { Task } from '../task';
 import { ResourceService } from '../../resource/resource.service';
 import { Resource } from '../../resource/resource';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-project-task-management',
@@ -67,9 +68,9 @@ export class ProjectTaskManagementComponent implements OnInit {
       label: new FormControl(null, Validators.required),
       estimatedCost: new FormControl(null, Validators.required),
       estimatedEndDate: new FormControl(null, Validators.required),
-      project: new FormControl(null, Validators.required),
       ressource: new FormControl(null, Validators.required)
     });
+    this.formWo.patchValue({ project: this.project,});
     
     this.formTask = new FormGroup({
       taskId : new FormControl(),

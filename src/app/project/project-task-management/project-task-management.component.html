@@ -66,18 +66,27 @@
                           <div class="col-md-3">
                               <div class="form-group">
                                  <label translate>task.estimatedEndDate</label>
-                                 <input type="text" class="form-control" formControlName="estimatedEndDate">
+                                 <input type="date" class="form-control" formControlName="estimatedEndDate" useValueAsDate>
                               </div>
                            </div>
                            <div class="col-md-3">
                               <div class="form-group">
-                                      <label ><a href="/resource" translate>task.resource</a> + </label>
-                                      <select class="form-control" formControlName="ressource">
-                                               <option *ngFor="let element of resources" [ngValue]="element" [selected]="ressource != null && ressource != 'undefined' && element.ressourceId === resource.ressourceId">
-                                                           {{ element.code }}
-                                               </option>
-                                           </select>
+                                <label ><a href="/resource" translate>task.resource</a> + </label>
+                                  <select class="form-control" formControlName="ressource">
+                                    <option *ngFor="let element of resources" [ngValue]="element" [selected]="ressource != null && ressource != 'undefined' && element.ressourceId === resource.ressourceId">
+                                      {{ element.code }}
+                                    </option>
+                                  </select>
                               </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12 ">
+                                 <div class="form-group">
+                                    <pre>{{formWo.value | json}}</pre>
+                                 </div>
+                                 
+                              </div>
+                             
                            </div>
                           
                        </div>
@@ -96,7 +105,7 @@
                          <th translate>task.estimatedCost</th>
                          <th translate>task.estimatedEndDate</th>
                          <th translate>task.ressource</th>
-                         <th translate>task.action</th>
+                         <th translate>common.action</th>
                       </tr>
                    </thead>
                    <tbody>
@@ -149,7 +158,7 @@
                          <th translate>subtask.label</th>
                          <th translate>subtask.taskDate</th>
                          <th translate>subtask.cost</th>
-                         <th translate>task.action</th>
+                         <th translate>common.action</th>
                       </tr>
                    </thead>
                    <tbody>

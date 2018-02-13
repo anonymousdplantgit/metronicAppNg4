@@ -22,7 +22,7 @@ import { ResourceModule } from './resource/resource.module';
 import { TypeModule } from './type/type.module';
 import { StateModule } from './state/state.module';
 import { ProjectModule } from './project/project.module';
-
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
 
 
 @NgModule({
@@ -30,6 +30,7 @@ import { ProjectModule } from './project/project.module';
   imports: [
     AppRoutingModule,
     Ng4LoadingSpinnerModule,
+    DateValueAccessorModule,
     HttpClientModule,
     HttpModule,
     FournisseurModule,

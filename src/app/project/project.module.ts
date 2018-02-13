@@ -9,10 +9,12 @@ import { ToastrModule  } from 'ngx-toastr';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectTaskManagementComponent } from './project-task-management/project-task-management.component';
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
 
 
 @NgModule({
   imports: [
+    DateValueAccessorModule,
     CommonModule,
     SharedModule,
     ProjectRoutingModule,
