@@ -124,6 +124,9 @@
         "ajouter": "Ajouter un Etat",
         "liste": "Liste des sous-tâches pour la tâche : ",
         "taskDate":"Date de tâche",
-        "label":"Libelle de sous-tâche"
+        "label":"Libelle de sous-tâche",
+        "message":{
+            "cost":"Requiere une valeur entre 0 et 1"
+        }
     }
 }

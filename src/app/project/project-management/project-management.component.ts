@@ -38,6 +38,14 @@ export class ProjectManagementComponent implements OnInit {
     private spinnerService: Ng4LoadingSpinnerService,
     private toastrService: ToastrService) { }
 
+    byTypeId(item1: Type, item2: Type) : boolean{
+      return item1 && item2 ?  item1.typeId === item2.typeId : item1 === item2;
+    }
+
+    byStateId(item1: State, item2: State) : boolean{
+      return item1 && item2 ?  item1.stateId === item2.stateId : item1 === item2;
+    }
+
   ngOnInit() {
 
     this.getAll();

@@ -24,7 +24,7 @@ export class ProjectTaskManagementComponent implements OnInit {
   param : any;
   idProject : number;
   public  project : Project;
-  public  workOder : WorkOrder;
+  public  workOrder : WorkOrder;
   public  workOrders : WorkOrder[];
   public  task : Task;
   public  tasks : Task[];
@@ -39,7 +39,9 @@ export class ProjectTaskManagementComponent implements OnInit {
     private resourceService: ResourceService,
     private spinnerService: Ng4LoadingSpinnerService,
     private toastrService: ToastrService) { }
-
+    byResourceId(item1: Resource, item2: Resource) : boolean{
+      return item1 && item2 ?  item1.ressourceId === item2.ressourceId : item1 === item2;
+    }
     getProject(){
       this.spinnerService.show();
       this.param = this.route.params.subscribe(params => {
@@ -66,7 +68,7 @@ export class ProjectTaskManagementComponent implements OnInit {
     this.formWo = new FormGroup({
       workorderId : new FormControl(),
       label: new FormControl(null, Validators.required),
-      estimatedCost: new FormControl(null, Validators.required),
+      estimatedCost: new FormControl(null, [Validators.required, Validators.min(0)]),
       estimatedEndDate: new FormControl(null, Validators.required),
       ressource: new FormControl(null, Validators.required)
     });
@@ -76,7 +78,7 @@ export class ProjectTaskManagementComponent implements OnInit {
       taskId : new FormControl(),
       label: new FormControl(null, Validators.required),
       taskDate: new FormControl(null, Validators.required),
-      cost: new FormControl(null, Validators.required),
+      cost: new FormControl(' error', [Validators.required, Validators.min(0),Validators.max(1)]),
       workorder: new FormControl(null, Validators.required)
     });
    
@@ -125,7 +127,7 @@ deleteWo(workOrder: WorkOrder) {
       res => {
         this.getWorkOrders(this.idProject);
         console.log('delete workOrder '+ workOrder.workorderId+' done');
-        this.toastrService.success("Deleted successfully", '', {timeOut: 3000,})
+        this.toastrService.success("DELETED", '', {timeOut: 3000,})
       },
       error =>  {
          console.log(error);
@@ -141,7 +143,7 @@ editWo(element: WorkOrder) {
     workorderId: element.workorderId,
     label: element.label,
     estimatedCost: element.estimatedCost,
-    estimatedEndDate: element.estimatedEndDate,
+    estimatedEndDate:new Date(element.estimatedEndDate),
     project: element.project,
     ressource: element.ressource
 });
@@ -160,7 +162,7 @@ onSubmitTask() {
         this.formTask.controls['label'].value,
         this.formTask.controls['taskDate'].value,
         this.formTask.controls['cost'].value,
-        this.workOder);
+        this.workOrder);
       this.taskService.save(element).subscribe(
         response =>  this.toastrService.success('SAVED', ''),
         error =>  this.toastrService.error(error, '', {timeOut: 3000,})
@@ -168,7 +170,7 @@ onSubmitTask() {
 
     }
     this.resetTask();
-    this.getTasks(this.workOder);
+    this.getTasks(this.workOrder);
 
 }
 
@@ -181,7 +183,7 @@ onSubmitTask() {
         res => {
           this.getTasks(task.workorder);
           console.log('delete workOrder '+ task.taskId+' done');
-          this.toastrService.success("Deleted successfully", '', {timeOut: 3000,})
+          this.toastrService.success("DELETED", '', {timeOut: 3000,})
         },
         error =>  {
            console.log(error);
@@ -197,7 +199,7 @@ onSubmitTask() {
     this.formTask.patchValue({
       taskId: element.taskId,
       label: element.label,
-      taskDate: element.taskDate,
+      taskDate: new Date(element.taskDate),
       cost: element.cost,
       workorder: element.workorder
   });
@@ -209,7 +211,8 @@ onSubmitTask() {
   }
   getTasks(workOrder: WorkOrder){
     this.spinnerService.show();
-    this.workOder=workOrder;
+    this.workOrder=workOrder;
+    this.formTask.patchValue({ workorder: workOrder});
     this.taskService.findByWorkOrder(workOrder.workorderId).subscribe(
       tasks => {
         this.tasks = tasks;

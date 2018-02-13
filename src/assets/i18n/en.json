@@ -118,7 +118,10 @@
         "ajouter": "Add new Sub-Task",
         "liste": "Sub-Tasks List for Task : ",
         "taskDate":"Sub-Task Date",
-        "label":"Sub-Task Label"
+        "label":"Sub-Task Label",
+        "message":{
+            "cost":"Requires value between 0 and 1"
+        }
     }
     
 }

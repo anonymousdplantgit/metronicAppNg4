@@ -20,6 +20,7 @@ export class WorkOrder {
        ressource:Resource ){
       this.workorderId = workorderId;
       this.label = label;
+      this.estimatedCost = estimatedCost;
       this.estimatedEndDate = estimatedEndDate;
       this.project = project;
       this.ressource = ressource;

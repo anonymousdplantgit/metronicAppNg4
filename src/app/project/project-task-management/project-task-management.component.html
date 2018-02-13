@@ -45,58 +45,53 @@
                 <a href="javascript:;" class="remove"> </a>
              </div>
           </div>
-
+          <div class="portlet-body form">
+              <form novalidate [formGroup]="formWo" (ngSubmit)="onSubmitWo()" class="horizontal-form">
+                  <div class="form-body">
+                     <div class="row">
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label translate>task.label</label>
+                              <input type="text" class="form-control" formControlName="label">
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="form-group">
+                              <label translate>task.estimatedCost</label>
+                              <input type="number" class="form-control" formControlName="estimatedCost">
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                               <label translate>task.estimatedEndDate</label>
+                               <input type="date" class="form-control" formControlName="estimatedEndDate" useValueAsDate>
+                            </div>
+                         </div>
+                         <div class="col-md-2">
+                            <div class="form-group">
+                              <label ><a href="/resource" translate>task.resource</a> + </label>
+                                <select class="form-control" formControlName="ressource" [compareWith]="byResourceId">
+                                  <option *ngFor="let element of resources" [ngValue]="element">
+                                    {{ element.code }}
+                                  </option>
+                                </select>
+                            </div>
+                         </div> 
+                         <div class="col-md-2">
+                            <div class="form-group form-actions right">
+                                <button type="button" class="btn default" (click)="resetWo()" translate>common.cancel</button>
+                                <button type="submit" class="btn blue" [disabled]="!formWo.valid" translate>
+                                <i class="fa fa-check"></i> common.save</button>
+                            </div>
+                         </div>                       
+                     </div>
+                  </div>
+                  </form>
+          </div>
           <div class="portlet-body">
+             
              <div class="table-scrollable">
-                <form novalidate [formGroup]="formWo" (ngSubmit)="onSubmitWo()" class="horizontal-form">
-                    <div class="form-body">
-                       <div class="row">
-                          <div class="col-md-3">
-                             <div class="form-group">
-                                <label translate>task.label</label>
-                                <input type="text" class="form-control" formControlName="label">
-                             </div>
-                          </div>
-                          <div class="col-md-3">
-                             <div class="form-group">
-                                <label translate>task.estimatedCost</label>
-                                <input type="text" class="form-control" formControlName="estimatedCost">
-                             </div>
-                          </div>
-                          <div class="col-md-3">
-                              <div class="form-group">
-                                 <label translate>task.estimatedEndDate</label>
-                                 <input type="date" class="form-control" formControlName="estimatedEndDate" useValueAsDate>
-                              </div>
-                           </div>
-                           <div class="col-md-3">
-                              <div class="form-group">
-                                <label ><a href="/resource" translate>task.resource</a> + </label>
-                                  <select class="form-control" formControlName="ressource">
-                                    <option *ngFor="let element of resources" [ngValue]="element" [selected]="ressource != null && ressource != 'undefined' && element.ressourceId === resource.ressourceId">
-                                      {{ element.code }}
-                                    </option>
-                                  </select>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="col-md-12 ">
-                                 <div class="form-group">
-                                    <pre>{{formWo.value | json}}</pre>
-                                 </div>
-                                 
-                              </div>
-                             
-                           </div>
-                          
-                       </div>
-                    </div>
-                    <div class="form-actions right">
-                       <button type="button" class="btn default" (click)="resetWo()" translate>common.cancel</button>
-                       <button type="submit" class="btn blue" [disabled]="!formWo.valid" translate>
-                       <i class="fa fa-check"></i> common.save</button>
-                    </div>
-                    </form>
+
                <table class="table table-striped table-hover">
                    <thead>
                       <tr>
@@ -149,6 +144,43 @@
                 <a href="javascript:;" class="remove"> </a>
              </div>
           </div>
+          <div class="portlet-body form">
+              <form novalidate [formGroup]="formTask" (ngSubmit)="onSubmitTask()" class="horizontal-form">
+                  <div class="form-body">
+                     <div class="row">
+                        <div class="col-md-4">
+                           <div class="form-group">
+                              <label translate>subtask.label</label>
+                              <input type="text" class="form-control" formControlName="label">
+                              <span class ="label label-danger" *ngIf="!formTask.controls.label.valid && formTask.controls.taskDate.label" translate>subtask.message.cost</span>
+                           
+                           </div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="form-group">
+                              <label translate>subtask.taskDate</label>
+                              <input type="date" class="form-control" formControlName="taskDate" useValueAsDate>
+                              <span class ="label label-danger" *ngIf="!formTask.controls.taskDate.valid && formTask.controls.taskDate.touched" translate>subtask.message.cost</span>
+                           </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                               <label translate>subtask.cost</label>
+                               <input type="number" class="form-control" formControlName="cost" >
+                               <span class ="label label-danger" *ngIf="!formTask.controls.cost.valid && formTask.controls.cost.touched" translate>subtask.message.cost</span>
+                            </div>
+                         </div> 
+                         <div class="col-md-2">
+                            <div class="form-group form-actions right">
+                                <button type="button" class="btn default" (click)="resetTask()" translate>common.cancel</button>
+                                 <button type="submit" class="btn blue" [disabled]="!formTask.valid" translate>
+                                 <i class="fa fa-check"></i> common.save</button>
+                            </div>
+                         </div>                     
+                     </div>                  
+                  </div>
+                  </form>
+          </div>
           <div class="portlet-body">
              <div class="table-scrollable">
                <table class="table table-striped table-hover">
@@ -168,7 +200,7 @@
                          <td>{{element.taskDate | date: 'dd/MM/yyyy'}}</td>
                          <td>{{element.cost}}</td>
                          <td>
-                            <a (click)="edit(element)" class="btn btn-outline btn-circle btn-sm purple" translate>
+                            <a (click)="editTask(element)" class="btn btn-outline btn-circle btn-sm purple" translate>
                             <i class="fa fa-edit"></i> common.edit </a>
                             <a (click)="deleteTask(element)" class="btn btn-outline btn-circle dark btn-sm red" translate>
                             <i class="fa fa-trash-o"></i> common.delete </a>

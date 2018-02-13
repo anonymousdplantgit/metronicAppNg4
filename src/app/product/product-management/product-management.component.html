@@ -57,9 +57,9 @@
                            <div class="col-md-2">
                                     <div class="form-group">
                                        <label translate>categ.categ</label>
-                                       <select class="form-control" formControlName="categorie">
-                                                <option *ngFor="let element of cats" [ngValue]="element" [selected]="categorie != null && categorie != 'undefined' && element.categorieId === categorie.categorieId">
-                                                            {{ element.ref }} {{ element.label }}
+                                       <select class="form-control" formControlName="categorie" [compareWith]="byId">
+                                                <option *ngFor="let element of cats"  [ngValue]="element">
+                                                            {{ element.label }}
                                                 </option>
                                             </select>
                                     </div>
@@ -88,6 +88,16 @@
                            
                            <!--/span-->
                         </div>
+                    <div class="row">
+                    <div class="col-md-12 ">
+                       <div class="form-group">
+                          <pre>{{form.value | json}}</pre>
+                          <pre>{{categorie | json}}</pre>
+                       </div>
+                       
+                    </div>
+                   
+                 </div>
                         <!--/row-->
                      </div>
                      <div class="form-actions right">

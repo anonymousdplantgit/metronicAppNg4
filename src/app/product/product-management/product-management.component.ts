@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
   providers: [ProductService,CategorieService,ToastrService]
 })
 export class ProductManagementComponent implements OnInit,OnDestroy {
-  public product: Product;
+
   form: FormGroup;
   public products: Product[];
   public cats: Categorie[];
@@ -26,8 +26,12 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
     private spinnerService: Ng4LoadingSpinnerService,
     private toastrService: ToastrService) { }
 
-  ngOnInit() {
+    byId(item1: Categorie, item2: Categorie) : boolean{
+      return item1 && item2 ?  item1.categorieId === item2.categorieId : item1 === item2;
+    }
 
+  ngOnInit() {
+    
     this.getAll();
 
 
@@ -61,11 +65,14 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
 
       }
       this.reset();
+
       this.getAll();
 }
   getAll() {
     this.spinnerService.show();
     this.getCategories();
+
+    
     this.productService.findAll().subscribe(
       products => {
         this.products = products;
@@ -120,7 +127,7 @@ export class ProductManagementComponent implements OnInit,OnDestroy {
     this.categorieService.findAll().subscribe(
       cats => {
         this.cats = cats;
-        console.log(cats);
+        console.log("categories : "+this.cats);
       },
       err => {
         this.toastrService.error(err, 'Error loading Data :', {timeOut: 3000,})
