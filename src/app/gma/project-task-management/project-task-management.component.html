@@ -152,22 +152,19 @@
                            <div class="form-group">
                               <label translate>subtask.label</label>
                               <input type="text" class="form-control" formControlName="label">
-                              <span class ="label label-danger" *ngIf="!formTask.controls.label.valid && formTask.controls.taskDate.label" translate>subtask.message.cost</span>
-                           
                            </div>
                         </div>
                         <div class="col-md-4">
                            <div class="form-group">
                               <label translate>subtask.taskDate</label>
                               <input type="date" class="form-control" formControlName="taskDate" useValueAsDate>
-                              <span class ="label label-danger" *ngIf="!formTask.controls.taskDate.valid && formTask.controls.taskDate.touched" translate>subtask.message.cost</span>
-                           </div>
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                <label translate>subtask.cost</label>
                                <input type="number" class="form-control" formControlName="cost" >
-                               <span class ="label label-danger" *ngIf="!formTask.controls.cost.valid && formTask.controls.cost.touched" translate>subtask.message.cost</span>
+                               <span class ="label label-danger" *ngIf="!formTask.controls.cost.valid " translate>subtask.message.cost</span>
                             </div>
                          </div> 
                          <div class="col-md-2">

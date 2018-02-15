@@ -78,7 +78,7 @@ export class ProjectTaskManagementComponent implements OnInit {
       taskId : new FormControl(),
       label: new FormControl(null, Validators.required),
       taskDate: new FormControl(null, Validators.required),
-      cost: new FormControl([Validators.required, Validators.min(0),Validators.max(1)]),
+      cost: new FormControl([Validators.required, Validators.min(0),Validators.max(10)]),
       workorder: new FormControl(null, Validators.required)
     });
    

@@ -1,5 +1,6 @@
-import { State } from "../state/state";
-import { Type } from "../type/type";
+import { Type } from "../type-management/type";
+import { State } from "../state-management/state";
+
 
 
 export class Project {

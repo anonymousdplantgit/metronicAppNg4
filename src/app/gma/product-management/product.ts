@@ -1,4 +1,6 @@
-import { Categorie } from "../categorie/categorie";
+import { Categorie } from "../categorie-management/categorie";
+
+
 
 export class Product {
     produitId: number;

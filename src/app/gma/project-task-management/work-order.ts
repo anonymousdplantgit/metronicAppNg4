@@ -1,5 +1,5 @@
-import { Project } from "./project";
-import { Resource } from "../resource/resource";
+import { Resource } from "../resource-management/resource";
+import { Project } from "../project-management/project";
 
 
 

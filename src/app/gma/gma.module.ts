@@ -19,6 +19,7 @@ import { ResourceManagementComponent } from './resource-management/resource-mana
 import { StateManagementComponent } from './state-management/state-management.component';
 import { TypeManagementComponent } from './type-management/type-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
 
 @NgModule({
   imports: [
@@ -27,12 +28,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    DateValueAccessorModule,
     Ng4LoadingSpinnerModule.forRoot(),
     ToastrModule.forRoot({timeOut: 2000,
       positionClass: 'toast-top-right',
       preventDuplicates: false,
       closeButton:true,
-    progressBar:true}), // ToastrModule added
+      progressBar:true}),
     BrowserModule,
     BrowserAnimationsModule,
   ],

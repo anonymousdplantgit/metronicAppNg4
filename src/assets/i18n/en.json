@@ -3,7 +3,7 @@
         "delete": "Delete",
         "save": "Save",
         "cancel": "Cancel",
-        "config":"Settings",
+        "config":"Project Settings",
         "acceuil": "Home",
         "action": "Action",
         "type":"Project Types",
@@ -13,15 +13,6 @@
         "stock":"Stock Resources",
         "tasks":"Show Tasks",
         "subtasks":"Show sub-tasks"
-    },
-    "messages":{
-        "edit":"Edit",
-        "delete": "Delete",
-        "save": "Save",
-        "cancel": "Cancel",
-        "config":"Settings",
-        "acceuil": "Home",
-        "action": "Action"
     },
 
     "dashboard": {

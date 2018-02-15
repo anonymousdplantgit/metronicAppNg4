@@ -4,27 +4,17 @@
         "delete": "Supprimer",
         "save": "Sauvgarder",
         "cancel": "Annuler",
-        "config":"Configuration",
+        "config":"Configuration de Projet",
         "acceuil": "Acceuil",
         "action": "Action",
         "type":"Types de projet",
         "state":"Etats de projet",
         "resource":"Ressources de projet",
-        "project":"gestion de Projet",
-        "stock":"gestion de Stock",
+        "project":"Gestion de Projet",
+        "stock":"Gestion de Stock",
         "tasks":"Voir les Tâches",
         "subtasks":"Voir les sous-tâches"
         
-    },
-
-    "messages":{
-        "edit":"Edit",
-        "delete": "Delete",
-        "save": "Save",
-        "cancel": "Cancel",
-        "config":"Settings",
-        "acceuil": "Home",
-        "action": "Action"
     },
 
     "dashboard": {

@@ -14,7 +14,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { GmaModule } from './gma/gma.module';
 
 
@@ -23,7 +22,6 @@ import { GmaModule } from './gma/gma.module';
   imports: [
     AppRoutingModule,
     Ng4LoadingSpinnerModule,
-    DateValueAccessorModule,
     HttpClientModule,
     HttpModule,
     BrowserModule,
@@ -42,9 +40,7 @@ import { GmaModule } from './gma/gma.module';
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
-    ThemePanelComponent
-
-    
+    ThemePanelComponent  
   ],
   providers: [TranslateService],
   bootstrap: [AppComponent],
