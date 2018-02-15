@@ -12,7 +12,10 @@
         "project":"Project Management",
         "stock":"Stock Resources",
         "tasks":"Show Tasks",
-        "subtasks":"Show sub-tasks"
+        "subtasks":"Show sub-tasks",
+        "message":{
+            "required":"This is a required field"
+        }
     },
 
     "dashboard": {

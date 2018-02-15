@@ -13,7 +13,10 @@
         "project":"Gestion de Projet",
         "stock":"Gestion de Stock",
         "tasks":"Voir les Tâches",
-        "subtasks":"Voir les sous-tâches"
+        "subtasks":"Voir les sous-tâches",
+        "message":{
+            "required":"Ce champ est requis"
+        }
         
     },
 

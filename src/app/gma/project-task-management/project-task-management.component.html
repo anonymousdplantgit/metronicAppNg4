@@ -50,31 +50,43 @@
                   <div class="form-body">
                      <div class="row">
                         <div class="col-md-3">
-                           <div class="form-group">
+                           <div class="form-group" [ngClass]="{
+                            'has-danger': formWo.controls.label.invalid && formWo.controls.label.touched,
+                            'has-success': formWo.controls.label.valid && formWo.controls.label.touched}">
                               <label translate>task.label</label>
                               <input type="text" class="form-control" formControlName="label">
+                              <span class ="label label-danger" *ngIf="formWo.controls.label.invalid && formWo.controls.label.touched" translate>common.message.required</span>
                            </div>
                         </div>
                         <div class="col-md-3">
-                           <div class="form-group">
+                           <div class="form-group" [ngClass]="{
+                            'has-danger': formWo.controls.estimatedCost.invalid && formWo.controls.estimatedCost.touched,
+                            'has-success': formWo.controls.estimatedCost.valid && formWo.controls.estimatedCost.touched}">
                               <label translate>task.estimatedCost</label>
                               <input type="number" class="form-control" formControlName="estimatedCost">
+                              <span class ="label label-danger" *ngIf="formWo.controls.estimatedCost.invalid && formWo.controls.estimatedCost.touched" translate>common.message.required</span>
                            </div>
                         </div>
                         <div class="col-md-2">
-                            <div class="form-group">
+                            <div class="form-group" [ngClass]="{
+                                'has-danger': formWo.controls.estimatedEndDate.invalid && formWo.controls.estimatedEndDate.touched,
+                                'has-success': formWo.controls.estimatedEndDate.valid && formWo.controls.estimatedEndDate.touched}">
                                <label translate>task.estimatedEndDate</label>
                                <input type="date" class="form-control" formControlName="estimatedEndDate" useValueAsDate>
+                               <span class ="label label-danger" *ngIf="formWo.controls.estimatedEndDate.invalid && formWo.controls.estimatedEndDate.touched" translate>common.message.required</span>
                             </div>
                          </div>
                          <div class="col-md-2">
-                            <div class="form-group">
+                            <div class="form-group" [ngClass]="{
+                                'has-danger': formWo.controls.ressource.invalid && formWo.controls.ressource.touched,
+                                'has-success': formWo.controls.ressource.valid && formWo.controls.ressource.touched}">
                               <label ><a href="/resource" translate>task.resource</a> + </label>
                                 <select class="form-control" formControlName="ressource" [compareWith]="byResourceId">
                                   <option *ngFor="let element of resources" [ngValue]="element">
                                     {{ element.code }}
                                   </option>
                                 </select>
+                                <span class ="label label-danger" *ngIf="formWo.controls.ressource.invalid && formWo.controls.ressource.touched" translate>common.message.required</span>
                             </div>
                          </div> 
                          <div class="col-md-2">
@@ -135,8 +147,8 @@
        <!-- Begin: life time stats -->
        <div class="portlet box green">
           <div class="portlet-title">
-             <div class="caption" *ngIf="workOder">
-                <i class="fa fa-list" ></i>{{ 'subtask.liste' | translate }}  {{workOder.label}}
+             <div class="caption" *ngIf="workOrder">
+                <i class="fa fa-list" ></i>{{ 'subtask.liste' | translate }}  {{workOrder.label}}
              </div>
              <div class="tools">
                 <a href="javascript:;" class="collapse"> </a>
@@ -149,22 +161,30 @@
                   <div class="form-body">
                      <div class="row">
                         <div class="col-md-4">
-                           <div class="form-group">
+                           <div class="form-group" [ngClass]="{
+                            'has-danger': formTask.controls.label.invalid && formTask.controls.label.touched,
+                            'has-success': formTask.controls.label.valid && formTask.controls.label.touched}">
                               <label translate>subtask.label</label>
                               <input type="text" class="form-control" formControlName="label">
+                              <span class ="label label-danger" *ngIf="formTask.controls.label.invalid && formTask.controls.label.touched" translate>common.message.required</span>
                            </div>
                         </div>
                         <div class="col-md-4">
-                           <div class="form-group">
+                           <div class="form-group" [ngClass]="{
+                            'has-danger': formTask.controls.taskDate.invalid && formTask.controls.taskDate.touched,
+                            'has-success': formTask.controls.taskDate.valid && formTask.controls.taskDate.touched}">
                               <label translate>subtask.taskDate</label>
                               <input type="date" class="form-control" formControlName="taskDate" useValueAsDate>
+                              <span class ="label label-danger" *ngIf="formTask.controls.taskDate.invalid && formTask.controls.taskDate.touched" translate>common.message.required</span>
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <div class="form-group">
+                            <div class="form-group" [ngClass]="{
+                                'has-danger': formTask.controls.cost.invalid && formTask.controls.cost.touched,
+                                'has-success': formTask.controls.cost.valid && formTask.controls.cost.touched}">
                                <label translate>subtask.cost</label>
                                <input type="number" class="form-control" formControlName="cost" >
-                               <span class ="label label-danger" *ngIf="!formTask.controls.cost.valid " translate>subtask.message.cost</span>
+                               <span class ="label label-danger" *ngIf="formTask.controls.cost.invalid && formTask.controls.cost.touched" translate>subtask.message.cost</span>
                             </div>
                          </div> 
                          <div class="col-md-2">
