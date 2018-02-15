@@ -1,28 +1,28 @@
 
 import { Component, OnInit,ViewChild  } from '@angular/core';
-import { State } from '../state';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../../app.component';
-import { StateService } from '../state.service';
 import { ToastrService } from 'ngx-toastr';
+import { TypeService } from './type.service';
+import { Type } from './type';
 
 @Component({
-  selector: 'app-state-management',
-  templateUrl: './state-management.component.html',
-  styleUrls: ['./state-management.component.css'],
-  providers: [StateService,ToastrService]
+  selector: 'app-type-management',
+  templateUrl: './type-management.component.html',
+  styleUrls: ['./type-management.component.css'],
+  providers: [TypeService,ToastrService]
 })
-export class StateManagementComponent implements OnInit {
+export class TypeManagementComponent implements OnInit {
 
-  public state: State;
+  public type: Type;
   form: FormGroup;
-  public states: State[];
+  public types: Type[];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private restService: StateService,
+    private restService: TypeService,
     private spinnerService: Ng4LoadingSpinnerService,
     private toastrService: ToastrService) { }
 
@@ -32,7 +32,7 @@ export class StateManagementComponent implements OnInit {
 
 
     this.form = new FormGroup({
-      stateId : new FormControl(),
+      typeId : new FormControl(),
       code: new FormControl(null, Validators.required),
       label: new FormControl(null, Validators.required)
     });
@@ -42,8 +42,8 @@ export class StateManagementComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-        let element: State = new State(
-          this.form.controls['stateId'].value,
+        let element: Type = new Type(
+          this.form.controls['typeId'].value,
           this.form.controls['code'].value,
           this.form.controls['label'].value);
         this.restService.save(element).subscribe(
@@ -60,7 +60,7 @@ export class StateManagementComponent implements OnInit {
     this.spinnerService.show();
     this.restService.findAll().subscribe(
       elements => {
-        this.states = elements;
+        this.types = elements;
         console.log(elements);
         this.spinnerService.hide();
       },
@@ -73,12 +73,12 @@ export class StateManagementComponent implements OnInit {
     
   }
  
-  delete(element: State) {
+  delete(element: Type) {
     if (element) {
-      this.restService.deleteById(element.stateId).subscribe(
+      this.restService.deleteById(element.typeId).subscribe(
         res => { 
           this.getAll();
-          console.log('delete State '+ element.stateId+' done');
+          console.log('delete Type '+ element.typeId+' done');
           this.toastrService.success("DELETED", '', {timeOut: 3000,})
         },
         error =>  {
@@ -89,10 +89,10 @@ export class StateManagementComponent implements OnInit {
     }
   }
   
-  edit(element: State) {
+  edit(element: Type) {
     console.log(element);
     this.form.patchValue({
-      stateId: element.stateId,
+      typeId: element.typeId,
       code: element.code,
       label: element.label
   });

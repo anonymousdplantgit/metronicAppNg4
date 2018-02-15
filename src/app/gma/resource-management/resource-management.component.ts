@@ -1,28 +1,28 @@
 
 import { Component, OnInit,ViewChild  } from '@angular/core';
-import { Type } from '../type';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../../app.component';
-import { TypeService } from '../type.service';
 import { ToastrService } from 'ngx-toastr';
+import { ResourceService } from './resource.service';
+import { Resource } from './resource';
 
 @Component({
-  selector: 'app-type-management',
-  templateUrl: './type-management.component.html',
-  styleUrls: ['./type-management.component.css'],
-  providers: [TypeService,ToastrService]
+  selector: 'app-resource-management',
+  templateUrl: './resource-management.component.html',
+  styleUrls: ['./resource-management.component.css'],
+  providers: [ResourceService,ToastrService]
 })
-export class TypeManagementComponent implements OnInit {
+export class ResourceManagementComponent implements OnInit {
 
-  public type: Type;
+  public resource: Resource;
   form: FormGroup;
-  public types: Type[];
+  public resources: Resource[];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private restService: TypeService,
+    private restService: ResourceService,
     private spinnerService: Ng4LoadingSpinnerService,
     private toastrService: ToastrService) { }
 
@@ -32,9 +32,10 @@ export class TypeManagementComponent implements OnInit {
 
 
     this.form = new FormGroup({
-      typeId : new FormControl(),
+      ressourceId : new FormControl(),
       code: new FormControl(null, Validators.required),
-      label: new FormControl(null, Validators.required)
+      firstName: new FormControl(null, Validators.required),
+      lastName: new FormControl(null, Validators.required)
     });
   }
   ngOnDestroy(): void {
@@ -42,10 +43,11 @@ export class TypeManagementComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-        let element: Type = new Type(
-          this.form.controls['typeId'].value,
+        let element: Resource = new Resource(
+          this.form.controls['ressourceId'].value,
           this.form.controls['code'].value,
-          this.form.controls['label'].value);
+          this.form.controls['firstName'].value,
+          this.form.controls['lastName'].value);
         this.restService.save(element).subscribe(
           response =>  this.toastrService.success('SAVED', ''),
           error =>  this.toastrService.error(error, '', {timeOut: 3000,})
@@ -60,7 +62,7 @@ export class TypeManagementComponent implements OnInit {
     this.spinnerService.show();
     this.restService.findAll().subscribe(
       elements => {
-        this.types = elements;
+        this.resources = elements;
         console.log(elements);
         this.spinnerService.hide();
       },
@@ -73,12 +75,12 @@ export class TypeManagementComponent implements OnInit {
     
   }
  
-  delete(element: Type) {
+  delete(element: Resource) {
     if (element) {
-      this.restService.deleteById(element.typeId).subscribe(
+      this.restService.deleteById(element.ressourceId).subscribe(
         res => { 
           this.getAll();
-          console.log('delete Type '+ element.typeId+' done');
+          console.log('delete Resource '+ element.ressourceId+' done');
           this.toastrService.success("DELETED", '', {timeOut: 3000,})
         },
         error =>  {
@@ -89,12 +91,13 @@ export class TypeManagementComponent implements OnInit {
     }
   }
   
-  edit(element: Type) {
+  edit(element: Resource) {
     console.log(element);
     this.form.patchValue({
-      typeId: element.typeId,
+      ressourceId: element.ressourceId,
       code: element.code,
-      label: element.label
+      firstName: element.firstName,
+      lastName: element.lastName
   });
   
   }

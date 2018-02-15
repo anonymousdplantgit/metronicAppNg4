@@ -1,28 +1,28 @@
 
 import { Component, OnInit,ViewChild  } from '@angular/core';
-import { Resource } from '../resource';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../../app.component';
-import { ResourceService } from '../resource.service';
 import { ToastrService } from 'ngx-toastr';
+import { StateService } from './state.service';
+import { State } from './state';
 
 @Component({
-  selector: 'app-resource-management',
-  templateUrl: './resource-management.component.html',
-  styleUrls: ['./resource-management.component.css'],
-  providers: [ResourceService,ToastrService]
+  selector: 'app-state-management',
+  templateUrl: './state-management.component.html',
+  styleUrls: ['./state-management.component.css'],
+  providers: [StateService,ToastrService]
 })
-export class ResourceManagementComponent implements OnInit {
+export class StateManagementComponent implements OnInit {
 
-  public resource: Resource;
+  public state: State;
   form: FormGroup;
-  public resources: Resource[];
+  public states: State[];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private restService: ResourceService,
+    private restService: StateService,
     private spinnerService: Ng4LoadingSpinnerService,
     private toastrService: ToastrService) { }
 
@@ -32,10 +32,9 @@ export class ResourceManagementComponent implements OnInit {
 
 
     this.form = new FormGroup({
-      ressourceId : new FormControl(),
+      stateId : new FormControl(),
       code: new FormControl(null, Validators.required),
-      firstName: new FormControl(null, Validators.required),
-      lastName: new FormControl(null, Validators.required)
+      label: new FormControl(null, Validators.required)
     });
   }
   ngOnDestroy(): void {
@@ -43,11 +42,10 @@ export class ResourceManagementComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-        let element: Resource = new Resource(
-          this.form.controls['ressourceId'].value,
+        let element: State = new State(
+          this.form.controls['stateId'].value,
           this.form.controls['code'].value,
-          this.form.controls['firstName'].value,
-          this.form.controls['lastName'].value);
+          this.form.controls['label'].value);
         this.restService.save(element).subscribe(
           response =>  this.toastrService.success('SAVED', ''),
           error =>  this.toastrService.error(error, '', {timeOut: 3000,})
@@ -62,7 +60,7 @@ export class ResourceManagementComponent implements OnInit {
     this.spinnerService.show();
     this.restService.findAll().subscribe(
       elements => {
-        this.resources = elements;
+        this.states = elements;
         console.log(elements);
         this.spinnerService.hide();
       },
@@ -75,12 +73,12 @@ export class ResourceManagementComponent implements OnInit {
     
   }
  
-  delete(element: Resource) {
+  delete(element: State) {
     if (element) {
-      this.restService.deleteById(element.ressourceId).subscribe(
+      this.restService.deleteById(element.stateId).subscribe(
         res => { 
           this.getAll();
-          console.log('delete Resource '+ element.ressourceId+' done');
+          console.log('delete State '+ element.stateId+' done');
           this.toastrService.success("DELETED", '', {timeOut: 3000,})
         },
         error =>  {
@@ -91,13 +89,12 @@ export class ResourceManagementComponent implements OnInit {
     }
   }
   
-  edit(element: Resource) {
+  edit(element: State) {
     console.log(element);
     this.form.patchValue({
-      ressourceId: element.ressourceId,
+      stateId: element.stateId,
       code: element.code,
-      firstName: element.firstName,
-      lastName: element.lastName
+      label: element.label
   });
   
   }

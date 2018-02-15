@@ -1,11 +1,11 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
-import { Categorie } from '../categorie';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../../app.component';
-import { CategorieService } from '../categorie.service';
 import { ToastrService } from 'ngx-toastr';
+import { CategorieService } from './categorie.service';
+import { Categorie } from './categorie';
 
 
 @Component({

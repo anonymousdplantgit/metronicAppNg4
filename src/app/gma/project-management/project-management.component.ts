@@ -1,17 +1,15 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
-import { Project } from '../project';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../../app.component';
-import { ProjectService } from '../project.service';
 import { ToastrService } from 'ngx-toastr';
-
-import { State } from '../../state/state';
-import { TypeService } from '../../type/type.service';
-import { StateService } from '../../state/state.service';
-import { Type } from '../../type/type';
-
+import { ProjectService } from './project.service';
+import { TypeService } from '../type-management/type.service';
+import { StateService } from '../state-management/state.service';
+import { Project } from './project';
+import { State } from '../state-management/state';
+import { Type } from '../type-management/type';
 
 @Component({
   selector: 'app-project-management',

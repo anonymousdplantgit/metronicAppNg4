@@ -11,18 +11,11 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ThemePanelComponent } from './layout/theme-panel/theme-panel.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FournisseurModule } from './fournisseur/fournisseur.module';
 import { HttpModule } from '@angular/http';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { CategorieModule } from './categorie/categorie.module';
-import { ProductModule } from './product/product.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { ResourceModule } from './resource/resource.module';
-import { TypeModule } from './type/type.module';
-import { StateModule } from './state/state.module';
-import { ProjectModule } from './project/project.module';
 import { DateValueAccessorModule } from 'angular-date-value-accessor';
+import { GmaModule } from './gma/gma.module';
 
 
 @NgModule({
@@ -33,16 +26,9 @@ import { DateValueAccessorModule } from 'angular-date-value-accessor';
     DateValueAccessorModule,
     HttpClientModule,
     HttpModule,
-    FournisseurModule,
-    CategorieModule,
-    ProductModule,
-    DashboardModule,
-    ResourceModule,
-    TypeModule,
-    StateModule,
-    ProjectModule,
     BrowserModule,
     BrowserAnimationsModule, // required animations module
+    GmaModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

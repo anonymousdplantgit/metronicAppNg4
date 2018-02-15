@@ -1,13 +1,13 @@
 import { Component, OnInit ,OnDestroy} from '@angular/core';
 import {ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../product.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import { Product } from '../product';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { AppComponent } from '../../app.component';
-import { CategorieService } from '../../categorie/categorie.service';
-import { Categorie } from '../../categorie/categorie';
 import { ToastrService } from 'ngx-toastr';
+import { CategorieService } from '../categorie-management/categorie.service';
+import { ProductService } from './product.service';
+import { Categorie } from '../categorie-management/categorie';
+import { Product } from './product';
 @Component({
   selector: 'app-product-management',
   templateUrl: './product-management.component.html',

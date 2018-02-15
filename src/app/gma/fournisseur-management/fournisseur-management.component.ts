@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Fournisseur } from '../fournisseur';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { AppComponent } from '../../app.component';
-import { FournisseurService } from '../fournisseur.service';
 import { ToastrService } from 'ngx-toastr';
+import { FournisseurService } from './fournisseur.service';
+import { Fournisseur } from './fournisseur';
 
 @Component({
   selector: 'app-fournisseur-management',
