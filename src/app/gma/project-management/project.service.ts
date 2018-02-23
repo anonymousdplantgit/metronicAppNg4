@@ -6,11 +6,11 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Endpoints } from '../endpoints';
 
 @Injectable()
 export class ProjectService {
-  //private apiUrl = ' http://localhost:8080/projects';
-  private apiUrl = 'https://global-management-application.herokuapp.com/projects';
+  private apiUrl: string = new Endpoints().projects;
   constructor(private http: Http) { }
   findAll(): Observable<Project[]>  {
     return this.http.get(this.apiUrl)

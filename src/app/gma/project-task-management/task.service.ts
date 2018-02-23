@@ -7,12 +7,12 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Task } from './task';
+import { Endpoints } from '../endpoints';
 
 
 @Injectable()
 export class TaskService {
-  //private apiUrl = ' http://localhost:8080/tasks';
-  private apiUrl = 'https://global-management-application.herokuapp.com/tasks';
+  private apiUrl: string = new Endpoints().tasks;
   constructor(private http: Http) { }
   findAll(): Observable<Task[]>  {
     return this.http.get(this.apiUrl)
